@@ -2,18 +2,44 @@
   <div>
     <swiper :options="swiperOption">
       <swiper-slide>
-        <img class="w-100" src="../assets/images/e3bf3b30328abaaef040bf2446158f22.jpeg" alt="">
+        <img
+          class="w-100"
+          src="../assets/images/e3bf3b30328abaaef040bf2446158f22.jpeg"
+          alt
+        />
       </swiper-slide>
       <swiper-slide>
-        <img class="w-100" src="../assets/images/14bde65c54b8fe73612292c1f7c35d54.jpeg" alt="">
+        <img
+          class="w-100"
+          src="../assets/images/14bde65c54b8fe73612292c1f7c35d54.jpeg"
+          alt
+        />
       </swiper-slide>
       <swiper-slide>
-        <img class="w-100" src="../assets/images/8d2402e6095ca8a7ec4d671a3846bf94.jpeg" alt="">
+        <img
+          class="w-100"
+          src="../assets/images/8d2402e6095ca8a7ec4d671a3846bf94.jpeg"
+          alt
+        />
       </swiper-slide>
-      <div class="swiper-pagination pagination-home text-right px-3 pb-2" 
-      slot="pagination">
-      </div>
+      <div
+        class="swiper-pagination pagination-home text-right px-3 pb-2"
+        slot="pagination"
+      ></div>
     </swiper>
+    <!-- end of swiper -->
+    <div class="nav-icons bg-white mt-3 text-center pt-3 text-dark-1">
+      <div class="d-flex flex-wrap">
+        <div class="nav-item mb-3" v-for="n in 13" :key="n">
+          <i class="sprite sprite-news"></i>
+          <div class="py-2">爆料站</div>
+        </div>
+      </div>
+      <div class="bg-light py-2 fs-sm">
+        <i class="sprite sprite-arrow mr-1"></i>
+        <span>收起</span>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -41,6 +67,17 @@ export default {
     background: map-get($colors, 'white');
     &.swiper-pagination-bullet-active {
       background: map-get($colors, 'info');
+    }
+  }
+}
+.nav-icons {
+  border-top: 1px solid $border-color;
+  border-bottom: 1px solid $border-color;
+  .nav-item {
+    width: 25%;
+    border-right: 1px solid $border-color;
+    &:nth-child(4n) {
+      border-right: none;
     }
   }
 }
