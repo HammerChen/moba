@@ -2,13 +2,13 @@
   <div>
     <swiper :options="swiperOption">
       <swiper-slide>
-        <img class="w-100" src="../assets/images/e3bf3b30328abaaef040bf2446158f22.jpeg" alt />
+        <img class="w-100" src="../assets/images/e3bf3b30328abaaef040bf2446158f22.jpeg"/>
       </swiper-slide>
       <swiper-slide>
-        <img class="w-100" src="../assets/images/14bde65c54b8fe73612292c1f7c35d54.jpeg" alt />
+        <img class="w-100" src="../assets/images/14bde65c54b8fe73612292c1f7c35d54.jpeg"/>
       </swiper-slide>
       <swiper-slide>
-        <img class="w-100" src="../assets/images/8d2402e6095ca8a7ec4d671a3846bf94.jpeg" alt />
+        <img class="w-100" src="../assets/images/8d2402e6095ca8a7ec4d671a3846bf94.jpeg"/>
       </swiper-slide>
       <div class="swiper-pagination pagination-home text-right px-3 pb-2" slot="pagination"></div>
     </swiper>
@@ -28,37 +28,17 @@
     </div>
     <!-- end of nav icons -->
 
-    <m-card icon="menu1" title="新闻资讯">
-      <div class="nav jc-between">
-        <div class="nav-item active">
-          <div class="nav-link">热门</div>
+    <m-list-card icon="menu1" title="新闻资讯" :categories="newsCats">
+      <template #items="{category}">
+        <div class="py-2" v-for="(news, i) in category.newsList" :key="i">
+          <span>[{{news.categoryName}}]</span>
+          <span>|</span>
+          <span>{{news.title}}</span>
+          <span>{{news.date}}</span>
         </div>
-        <div class="nav-item">
-          <div class="nav-link">新闻</div>
-        </div>
-        <div class="nav-item">
-          <div class="nav-link">公告</div>
-        </div>
-        <div class="nav-item">
-          <div class="nav-link">活动</div>
-        </div>
-        <div class="nav-item">
-          <div class="nav-link">赛事</div>
-        </div>
-      </div>
-      <div class="pt-3">
-        <swiper>
-          <swiper-slide v-for="m in 5" :key="m">
-            <div class="py-2" v-for="n in 5" :key="n">
-              <span>[新闻]</span>
-              <span>|</span>
-              <span>王者荣耀祝各位召唤师春节快乐！</span>
-              <span>01/24</span>
-            </div>
-          </swiper-slide>
-        </swiper>
-      </div>
-    </m-card>
+      </template>
+    </m-list-card>
+
     <m-card icon="card-hero" title="英雄列表"></m-card>
     <m-card icon="menu1" title="精彩视频"></m-card>
     <m-card icon="menu1" title="图文攻略"></m-card>
@@ -73,7 +53,49 @@ export default {
         pagination: {
           el: '.pagination-home'
         }
-      }
+      },
+      newsCats: [
+        {
+          name: '热门',
+          newsList: new Array(5).fill(1).map(v => ({
+            categoryName: '公告',
+            title: '1月24日全服不停机更新公告',
+            date: '01/24'
+          }))
+        },
+        {
+          name: '新闻',
+          newsList: new Array(5).fill(1).map(v => ({
+            categoryName: '新闻',
+            title: '1月24日全服不停机更新公告',
+            date: '01/24'
+          }))
+        },
+        {
+          name: '公告',
+          newsList: new Array(5).fill(1).map(v => ({
+            categoryName: '公告',
+            title: '1月24日全服不停机更新公告',
+            date: '01/24'
+          }))
+        },
+        {
+          name: '活动',
+          newsList: new Array(5).fill(1).map(v => ({
+            categoryName: '活动',
+            title: '1月24日全服不停机更新公告',
+            date: '01/24'
+          }))
+        },
+        {
+          name: '赛事',
+          newsList: new Array(5).fill(1).map(v => ({
+            categoryName: '赛事',
+            title: '1月24日全服不停机更新公告',
+            date: '01/24'
+          }))
+        },
+      ]
     }
   }
 }
