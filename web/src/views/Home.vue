@@ -28,6 +28,7 @@
       ></div>
     </swiper>
     <!-- end of swiper -->
+
     <div class="nav-icons bg-white mt-3 text-center pt-3 text-dark-1">
       <div class="d-flex flex-wrap">
         <div class="nav-item mb-3" v-for="n in 13" :key="n">
@@ -40,6 +41,10 @@
         <span>收起</span>
       </div>
     </div>
+    <!-- end of nav icons -->
+
+    <i class="iconfont icon-news text-primary"></i>
+
   </div>
 </template>
 
