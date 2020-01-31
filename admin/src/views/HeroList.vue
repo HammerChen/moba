@@ -15,7 +15,7 @@
           <el-button
             type="text"
             size="small"
-            @click="$router.push(`/heros/edit/${scope.row._id}`)"
+            @click="$router.push(`/heroes/edit/${scope.row._id}`)"
             >编辑</el-button
           >
           <el-button type="text" size="small" @click="remove(scope.row)"
@@ -36,7 +36,7 @@ export default {
   },
   methods: {
     async fetch() {
-      const res = await this.$http.get('rest/heros')
+      const res = await this.$http.get('rest/heroes')
       this.items = res.data
     },
     async remove(row) {
@@ -46,7 +46,7 @@ export default {
         type: 'warning'
       })
         .then(async () => {
-          const res = await this.$http.delete(`rest/heros/${row._id}`)
+          const res = await this.$http.delete(`rest/heroes/${row._id}`)
           this.$message({
             type: 'success',
             message: '删除成功!'
